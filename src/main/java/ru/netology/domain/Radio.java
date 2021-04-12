@@ -1,22 +1,13 @@
 package ru.netology.domain;
 
 public class Radio {
-    String name;
     private int currentStation;
     private int minStation = 0;
     private int maxStation = 9;
     private int currentVolume;
     private int minVolume = 0;
     private int maxVolume = 10;
-    private boolean on;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -78,14 +69,6 @@ public class Radio {
 
     public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
-    }
-
-    public boolean isOn() {
-        return on;
-    }
-
-    public void setOn(boolean on) {
-        this.on = on;
     }
 
     // условие увеличения громкости на +1
