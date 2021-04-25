@@ -66,7 +66,23 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldChangeStationConstructor(){
+        Radio radio = new Radio(37);
+        radio.setCurrentStation(17);
+        assertEquals(17, radio.getCurrentStation());
+
+    }
+
+    @Test
     public void shouldChangeStationOverMax(){
+        radio.setCurrentStation(17);
+        assertEquals(0, radio.getCurrentStation());
+
+    }
+
+    @Test
+    public void shouldChangeStationOverMaxConstructor(){
+        Radio radio = new Radio(37);
         radio.setCurrentStation(17);
         assertEquals(0, radio.getCurrentStation());
 
