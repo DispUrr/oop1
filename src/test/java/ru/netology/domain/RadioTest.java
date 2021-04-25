@@ -5,6 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
     Radio radio = new Radio();
+
+    @Test
+    public void shouldUseRadio(){
+        Radio radio = new Radio(37);
+        assertEquals(37, radio.getMaxStation());
+
+    }
+
     // Громкость
     @Test
     public void shouldChangeVolume(){
@@ -14,14 +22,14 @@ public class RadioTest {
     }
     @Test
     public void shouldChangeVolumeOverMax(){
-        radio.setCurrentVolume(15);
-        assertEquals(10, radio.getCurrentVolume());
+        radio.setCurrentVolume(100);
+        assertEquals(100, radio.getCurrentVolume());
 
     }
 
     @Test
     public void shouldChangeVolumeUnderMin(){
-        radio.setCurrentVolume(-7);
+        radio.setCurrentVolume(-1);
         assertEquals(0, radio.getCurrentVolume());
 
     }
@@ -35,7 +43,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangeVolumeDowm(){
+    public void shouldChangeVolumeDown(){
         radio.setCurrentVolume(6);
         radio.setCurrentVolumeDown();
         assertEquals(5, radio.getCurrentVolume());
@@ -43,7 +51,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangeVolumeDowmUnderMin(){
+    public void shouldChangeVolumeDownUnderMin(){
         radio.setCurrentVolume(0);
         radio.setCurrentVolumeDown();
         assertEquals(0, radio.getCurrentVolume());
@@ -52,9 +60,9 @@ public class RadioTest {
 
     @Test
     public void shouldChangeVolumeUpOverMax(){
-        radio.setCurrentVolume(16);
+        radio.setCurrentVolume(101);
         radio.setCurrentVolumeUp();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
 
     }
     // Станции
@@ -66,6 +74,14 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldChangeStationConstructor(){
+        Radio radio = new Radio(37);
+        radio.setCurrentStation(17);
+        assertEquals(17, radio.getCurrentStation());
+
+    }
+
+    @Test
     public void shouldChangeStationOverMax(){
         radio.setCurrentStation(17);
         assertEquals(0, radio.getCurrentStation());
@@ -73,9 +89,25 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldChangeStationOverMaxConstructor(){
+        Radio radio = new Radio(37);
+        radio.setCurrentStation(45);
+        assertEquals(0, radio.getCurrentStation());
+
+    }
+
+    @Test
     public void shouldChangeStationUnderMin(){
         radio.setCurrentStation(-5);
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
+
+    }
+
+    @Test
+    public void shouldChangeStationUnderMinConstructor(){
+        Radio radio = new Radio(37);
+        radio.setCurrentStation(-5);
+        assertEquals(37, radio.getCurrentStation());
 
     }
 
@@ -88,7 +120,16 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangeStationDowm(){
+    public void shouldChangeStationUpConstructor(){
+        Radio radio = new Radio(41);
+        radio.setCurrentStation(16);
+        radio.setCurrentStationUp();
+        assertEquals(17, radio.getCurrentStation());
+
+    }
+
+    @Test
+    public void shouldChangeStationDown(){
         radio.setCurrentStation(5);
         radio.setCurrentStationDown();
         assertEquals(4, radio.getCurrentStation());
@@ -96,18 +137,45 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangeStationUpOverMax(){
+    public void shouldChangeStationDownConstructor(){
+        Radio radio = new Radio(31);
         radio.setCurrentStation(9);
+        radio.setCurrentStationDown();
+        assertEquals(8, radio.getCurrentStation());
+
+    }
+
+    @Test
+    public void shouldChangeStationUpOverMax(){
+        radio.setCurrentStation(10);
         radio.setCurrentStationUp();
         assertEquals(0, radio.getCurrentStation());
 
     }
 
     @Test
-    public void shouldChangeStationDowmUnderMin(){
+    public void shouldChangeStationUpOverMaxConstructor(){
+        Radio radio = new Radio(78);
+        radio.setCurrentStation(78);
+        radio.setCurrentStationUp();
+        assertEquals(0, radio.getCurrentStation());
+
+    }
+
+    @Test
+    public void shouldChangeStationDownUnderMin(){
         radio.setCurrentStation(0);
         radio.setCurrentStationDown();
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
+
+    }
+
+    @Test
+    public void shouldChangeStationDownUnderMinConstructor(){
+        Radio radio = new Radio(403);
+        radio.setCurrentStation(0);
+        radio.setCurrentStationDown();
+        assertEquals(403, radio.getCurrentStation());
 
     }
 
