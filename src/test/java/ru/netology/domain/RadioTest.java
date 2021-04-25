@@ -15,7 +15,7 @@ public class RadioTest {
     @Test
     public void shouldChangeVolumeOverMax(){
         radio.setCurrentVolume(15);
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(15, radio.getCurrentVolume());
 
     }
 
@@ -54,7 +54,7 @@ public class RadioTest {
     public void shouldChangeVolumeUpOverMax(){
         radio.setCurrentVolume(16);
         radio.setCurrentVolumeUp();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(17, radio.getCurrentVolume());
 
     }
     // Станции
@@ -83,7 +83,7 @@ public class RadioTest {
     @Test
     public void shouldChangeStationOverMaxConstructor(){
         Radio radio = new Radio(37);
-        radio.setCurrentStation(17);
+        radio.setCurrentStation(45);
         assertEquals(0, radio.getCurrentStation());
 
     }
@@ -91,7 +91,7 @@ public class RadioTest {
     @Test
     public void shouldChangeStationUnderMin(){
         radio.setCurrentStation(-5);
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
 
     }
 
@@ -113,7 +113,7 @@ public class RadioTest {
 
     @Test
     public void shouldChangeStationUpOverMax(){
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(10);
         radio.setCurrentStationUp();
         assertEquals(0, radio.getCurrentStation());
 
@@ -123,7 +123,7 @@ public class RadioTest {
     public void shouldChangeStationDowmUnderMin(){
         radio.setCurrentStation(0);
         radio.setCurrentStationDown();
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
 
     }
 
