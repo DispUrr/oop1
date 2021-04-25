@@ -1,5 +1,11 @@
 package ru.netology.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
+
 public class Radio {
     private int currentStation;
     private int minStation = 0;
@@ -8,17 +14,9 @@ public class Radio {
     private int minVolume = 0;
     private int maxVolume = 100;
 
-    // конструктор без аргументов
-    public Radio() {
-    }
 
-    // конструктор с указанием максимального кол-ва станций
     public Radio(int maxStation) {
         this.maxStation = maxStation;
-    }
-
-    public int getCurrentStation() {
-        return currentStation;
     }
 
     // установка границ переключения каналов
@@ -32,26 +30,6 @@ public class Radio {
         this.currentStation = currentStation;
     }
 
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }
-
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
     // установка границ переключения громкости
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume > maxVolume) {
@@ -61,22 +39,6 @@ public class Radio {
             currentVolume = minVolume;
         }
         this.currentVolume = currentVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
     }
 
     // условие увеличения громкости на +1
